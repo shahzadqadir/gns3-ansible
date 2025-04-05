@@ -27,16 +27,11 @@ RUN mkdir /var/run/sshd
 
 USER script
 
-RUN ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519
-
 RUN mkdir -p /home/script/.ssh && \
     chmod 700 /home/script/.ssh
 
 RUN touch /home/script/.ssh/config && \
 chmod 600 /home/script/.ssh/config
-
-COPY ~/.ssh/id_rsa.pub /home/script/.ssh/authorized_keys
-RUN chmod 600 /home/script/.ssh/authorized_keys
 
 RUN mkdir -p /home/script/ansible && \
     mkdir -p /home/script/playbooks
@@ -53,3 +48,4 @@ EXPOSE 22
 # Host 10.10.100.100
 #     User script
 #     IdentityFile ~/.ssh/id_rsa
+# you will need to copy ~/.ssh/id_rsa.pub to docker container ~/.ssh/authorized_keys
