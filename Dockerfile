@@ -33,13 +33,13 @@ RUN mkdir -p /home/script/.ssh && \
 RUN touch /home/script/.ssh/config && \
 chmod 600 /home/script/.ssh/config
 
-RUN mkdir -p /home/script/ansible && \
-    mkdir -p /home/script/playbooks
-
 VOLUME ["/home/script/ansible", "/home/script/playbooks"]
 
 USER root
 EXPOSE 22
+
+RUN mkdir -p /home/script/ansible && \
+    mkdir -p /home/script/playbooks
 
 # to ssh using VSCode make sure you have ~/.ssh/config has following
 # manullay start ssh service in docker as can't be baked in image.
