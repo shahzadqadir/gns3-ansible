@@ -38,8 +38,6 @@ RUN mkdir -p /home/script/ansible && \
 
 VOLUME ["/home/script/ansible", "/home/script/playbooks"]
 
-RUN service start ssh
-
 USER root
 EXPOSE 22
 
