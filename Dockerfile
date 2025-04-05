@@ -44,7 +44,7 @@ USER root
 EXPOSE 22
 
 # to ssh using VSCode make sure you have ~/.ssh/config has following
-
+# manullay start ssh service in docker as can't be baked in image.
 # Host 10.10.100.100
 #     User script
 #     IdentityFile ~/.ssh/id_rsa
